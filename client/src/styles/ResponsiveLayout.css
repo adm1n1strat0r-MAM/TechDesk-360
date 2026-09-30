@@ -1,0 +1,590 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Keep every scroll area usable while hiding its scrollbar chrome. */
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}
+
+@media (min-width: 1400px) and (min-height: 760px) {
+  :root {
+    font-size: 14.5px;
+  }
+
+  .app-shell {
+    height: 100dvh;
+    min-height: 0;
+    gap: 18px;
+    padding: 18px;
+  }
+
+  .sidebar {
+    flex: 0 0 250px;
+    width: 250px;
+    height: calc(100dvh - 36px);
+    min-height: 0;
+    padding: 15px 13px 12px;
+    border-radius: 22px;
+  }
+
+  .brand-block {
+    padding: 3px 8px 12px;
+  }
+
+  .brand-logo {
+    width: min(100%, 185px);
+  }
+
+  .nav-menu {
+    gap: 8px;
+    padding-top: 14px;
+  }
+
+  .nav-group {
+    gap: 5px;
+  }
+
+  .nav-submenu {
+    gap: 5px;
+    padding-left: 12px;
+    margin-top: 2px;
+  }
+
+  .nav-item {
+    gap: 10px;
+    padding: 9px 11px;
+    border-radius: 12px;
+  }
+
+  .nav-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 10px;
+  }
+
+  .nav-label {
+    font-size: 0.9rem;
+  }
+
+  .nav-subitem {
+    padding: 8px 10px;
+    font-size: 0.78rem;
+  }
+
+  .logout-button {
+    padding: 10px 12px;
+    border-radius: 13px;
+  }
+
+  .page-view {
+    height: calc(100dvh - 36px);
+    padding-right: 0;
+  }
+
+  .content-panel {
+    padding: 18px;
+    border-radius: 22px;
+  }
+
+  .topbar {
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .page-title {
+    margin-top: 4px;
+    font-size: clamp(1.45rem, 1.55vw, 1.9rem);
+  }
+
+  .page-subtitle {
+    margin-top: 4px;
+    font-size: 0.76rem;
+  }
+
+  .stats-grid {
+    gap: 12px;
+  }
+
+  .stat-card {
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .stat-value {
+    margin-top: 9px;
+    font-size: clamp(1.45rem, 1.7vw, 1.9rem);
+  }
+
+  .stat-detail {
+    margin-top: 5px;
+    font-size: 0.76rem;
+  }
+
+  .panel-card,
+  .crud-form,
+  .table-panel {
+    padding: 16px;
+    border-radius: 18px;
+  }
+
+  .panel-header {
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .panel-header h3,
+  .section-heading h3 {
+    font-size: 1.02rem;
+  }
+
+  .content-grid,
+  .overview-panel,
+  .inventory-overview-panel,
+  .inventory-locations-panel,
+  .branch-overview-panel,
+  .branch-list-panel,
+  .branch-form-panel,
+  .branch-bulk-panel {
+    margin-top: 15px;
+  }
+
+  .content-grid,
+  .crud-shell {
+    gap: 14px;
+  }
+
+  .crud-shell {
+    grid-template-columns: minmax(300px, 360px) minmax(0, 1fr);
+    margin-top: 15px;
+  }
+
+  .form-grid,
+  .branch-form-grid,
+  .lab-case-fields {
+    gap: 11px;
+  }
+
+  .form-field {
+    gap: 6px;
+    font-size: 0.76rem;
+  }
+
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    padding: 9px 11px;
+    border-radius: 10px;
+  }
+
+  .primary-btn,
+  .secondary-btn,
+  .action-btn {
+    padding: 8px 12px;
+    border-radius: 10px;
+  }
+
+  .form-actions {
+    gap: 9px;
+    margin-top: 12px;
+  }
+
+  .data-table {
+    min-width: 0;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 8px 8px;
+    font-size: 0.78rem;
+  }
+
+  .data-table th {
+    font-size: 0.67rem;
+    letter-spacing: 0.04em;
+  }
+
+  .table-wrap,
+  .inventory-table-wrap {
+    max-height: calc(100dvh - 290px);
+    overflow: auto;
+    overscroll-behavior: contain;
+  }
+
+  .data-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #101b2f;
+  }
+
+  .lab-case-table {
+    min-width: 1220px;
+  }
+
+  .inventory-preview-wrap {
+    max-height: min(48dvh, 430px);
+  }
+
+  .inventory-import-preview {
+    min-width: 1100px;
+  }
+
+  .inventory-employee-table {
+    min-width: 1120px;
+  }
+
+  .inventory-employee-detail-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .inventory-employee-detail-grid > div {
+    padding: 9px;
+  }
+
+  .inventory-employee-detail-panel {
+    margin-top: 14px;
+  }
+
+  .inventory-category-grid {
+    gap: 10px;
+  }
+
+  .inventory-category-panel {
+    padding: 13px;
+  }
+
+  .inventory-model-list {
+    max-height: 190px;
+    gap: 6px;
+  }
+
+  .branch-table {
+    min-width: 960px;
+  }
+
+  .branch-form-panel,
+  .lab-case-form {
+    padding: 18px;
+  }
+
+  .lab-case-form {
+    width: 100%;
+  }
+
+  .lab-case-table {
+    font-size: 0.76rem;
+  }
+
+  .lab-filter-grid {
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+}
+
+@media (min-width: 1101px) and (max-width: 1399px) {
+  :root {
+    font-size: 15px;
+  }
+
+  .app-shell {
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .sidebar {
+    flex: 0 0 275px;
+    width: 275px;
+    height: calc(100vh - 40px);
+    min-height: 0;
+    padding: 18px 14px 14px;
+  }
+
+  .page-view {
+    height: calc(100vh - 40px);
+  }
+
+  .content-panel {
+    padding: 21px;
+  }
+
+  .page-title {
+    font-size: clamp(1.55rem, 2vw, 2.1rem);
+  }
+
+  .stats-grid,
+  .overview-grid,
+  .inventory-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .crud-shell {
+    grid-template-columns: minmax(280px, 340px) minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .lab-case-table {
+    min-width: 1250px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 9px 8px;
+  }
+
+  .table-wrap,
+  .inventory-table-wrap {
+    max-width: 100%;
+    max-height: calc(100vh - 300px);
+    overflow: auto;
+  }
+}
+
+@media (max-width: 1100px) {
+  body {
+    overflow: auto;
+  }
+
+  .app-shell {
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    flex-direction: column;
+    gap: 14px;
+    padding: 14px;
+  }
+
+  .sidebar {
+    flex: 0 0 auto;
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    max-height: 42dvh;
+    padding: 12px;
+    border-radius: 20px;
+  }
+
+  .brand-block {
+    justify-content: flex-start;
+    padding: 4px 8px 10px;
+  }
+
+  .brand-logo {
+    width: min(190px, 55vw);
+  }
+
+  .nav-menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(175px, 1fr));
+    align-content: start;
+    gap: 8px;
+    padding: 10px 2px;
+  }
+
+  .nav-group {
+    gap: 5px;
+  }
+
+  .nav-item {
+    padding: 9px 11px;
+  }
+
+  .nav-icon {
+    width: 30px;
+    height: 30px;
+  }
+
+  .logout-button {
+    margin-top: 6px;
+  }
+
+  .page-view {
+    width: 100%;
+    height: auto;
+    min-height: 0;
+    overflow: visible;
+    padding: 0;
+  }
+
+  .stats-grid,
+  .overview-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .content-grid,
+  .crud-shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .table-wrap,
+  .inventory-table-wrap {
+    max-width: 100%;
+    overflow: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .app-shell {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .sidebar {
+    max-height: 38dvh;
+    padding: 9px;
+    border-radius: 16px;
+  }
+
+  .nav-menu {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .nav-label {
+    font-size: 0.82rem;
+  }
+
+  .nav-submenu {
+    padding-left: 8px;
+  }
+
+  .nav-subitem {
+    padding: 7px 8px;
+    font-size: 0.74rem;
+  }
+
+  .content-panel {
+    padding: 14px;
+    border-radius: 17px;
+  }
+
+  .topbar {
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+
+  .page-title {
+    font-size: clamp(1.45rem, 6vw, 1.9rem);
+  }
+
+  .page-subtitle {
+    font-size: 0.72rem;
+    line-height: 1.4;
+  }
+
+  .panel-card,
+  .crud-form,
+  .table-panel {
+    padding: 13px;
+    border-radius: 15px;
+  }
+
+  .stats-grid,
+  .overview-grid,
+  .inventory-category-grid,
+  .branch-region-grid,
+  .branch-form-grid,
+  .lab-case-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .inventory-employee-detail-grid,
+  .branch-detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat-card {
+    padding: 13px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 7px 8px;
+  }
+
+  .branch-pagination,
+  .branch-bulk-heading,
+  .branch-edit-heading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .lab-filter-toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-filter-toolbar .lab-filter-field--search,
+  .lab-case-remarks {
+    grid-column: auto;
+  }
+}
+
+@media (max-width: 460px) {
+  :root {
+    font-size: 14px;
+  }
+
+  .stats-grid,
+  .overview-grid,
+  .inventory-employee-detail-grid,
+  .branch-detail-grid,
+  .role-permission-grid,
+  .role-list {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-menu {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-badge {
+    width: 100%;
+  }
+
+  .auth-screen {
+    padding: 12px;
+  }
+
+  .auth-card {
+    padding: 20px;
+  }
+}
+
+@media (max-height: 700px) and (min-width: 701px) {
+  body {
+    overflow: auto;
+  }
+
+  .app-shell {
+    height: auto;
+    min-height: 100dvh;
+  }
+
+  .sidebar {
+    min-height: 0;
+  }
+
+  .page-view {
+    height: auto;
+    min-height: calc(100dvh - 36px);
+    overflow: visible;
+  }
+}

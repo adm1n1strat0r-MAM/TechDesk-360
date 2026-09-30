@@ -204,6 +204,23 @@ export async function getBranches() {
   return result.data.map(normalizeBranch)
 }
 
+export async function getInventoryOverview() {
+  const result = await request('/inventory/summary')
+  return result.data
+}
+
+export async function getInventoryRecords() {
+  const result = await request('/inventory/records')
+  return result.data
+}
+
+export function importInventoryRows(records) {
+  return request('/inventory/import', {
+    method: 'POST',
+    body: JSON.stringify({ records }),
+  })
+}
+
 export async function createBranch(branch) {
   const result = await request('/branches', {
     method: 'POST',

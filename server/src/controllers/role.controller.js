@@ -11,6 +11,8 @@ const defaultRoles = [
       'lab-new-cases',
       'lab-cases-summary',
       'inventory',
+      'inventory-back-office',
+      'inventory-branch',
       'branch-management',
       'branch-add',
       'branch-list',
@@ -37,6 +39,8 @@ const defaultRoles = [
     permissions: [
       'dashboard',
       'inventory',
+      'inventory-back-office',
+      'inventory-branch',
       'branch-management',
       'branch-add',
       'branch-list',

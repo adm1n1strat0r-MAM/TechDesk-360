@@ -1,0 +1,212 @@
+:root {
+  --motion-fast: 210ms;
+  --motion-normal: 300ms;
+  --motion-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes motion-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes motion-rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes motion-slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes motion-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.app-shell {
+  animation: motion-fade-in 560ms ease-out backwards;
+}
+
+.sidebar {
+  animation: motion-slide-in 650ms var(--motion-ease) backwards;
+}
+
+.content-panel {
+  animation: motion-rise-in 560ms var(--motion-ease) backwards;
+}
+
+.auth-card {
+  animation: motion-pop-in 560ms var(--motion-ease) backwards;
+}
+
+.content-panel > .topbar,
+.content-panel > .stats-grid,
+.content-panel > .content-grid,
+.content-panel > .panel-card,
+.content-panel > .overview-grid,
+.content-panel > .lab-case-shell,
+.content-panel > .branch-aom-panel {
+  animation: motion-rise-in 520ms var(--motion-ease) 70ms backwards;
+}
+
+.content-panel > :nth-child(3) {
+  animation-delay: 110ms;
+}
+
+.content-panel > :nth-child(4) {
+  animation-delay: 155ms;
+}
+
+.stats-grid > *,
+.content-grid > *,
+.overview-grid > *,
+.inventory-category-grid > * {
+  animation: motion-rise-in 460ms var(--motion-ease) 100ms backwards;
+}
+
+.stats-grid > :nth-child(2),
+.overview-grid > :nth-child(2),
+.inventory-category-grid > :nth-child(2) {
+  animation-delay: 130ms;
+}
+
+.stats-grid > :nth-child(3),
+.overview-grid > :nth-child(3),
+.inventory-category-grid > :nth-child(3) {
+  animation-delay: 170ms;
+}
+
+.stats-grid > :nth-child(4),
+.overview-grid > :nth-child(4),
+.inventory-category-grid > :nth-child(4) {
+  animation-delay: 210ms;
+}
+
+.nav-submenu {
+  animation: motion-rise-in 320ms var(--motion-ease) backwards;
+}
+
+.profile-dropdown,
+.auth-card [role='status'],
+.auth-card [role='alert'] {
+  animation: motion-pop-in 300ms var(--motion-ease) backwards;
+}
+
+.lab-dialog-backdrop {
+  animation: motion-fade-in 240ms ease-out backwards;
+}
+
+.lab-edit-dialog {
+  animation: motion-pop-in 340ms var(--motion-ease) backwards;
+}
+
+.profile-chevron {
+  transition: transform var(--motion-normal) var(--motion-ease);
+}
+
+.profile-badge[aria-expanded='true'] .profile-chevron {
+  transform: rotate(180deg);
+}
+
+.panel-card,
+.stat-card,
+.overview-card,
+.overview-section-card,
+.inventory-category-panel,
+.inventory-employee-detail-grid > div {
+  transition:
+    border-color var(--motion-normal) var(--motion-ease),
+    box-shadow var(--motion-normal) var(--motion-ease),
+    background-color var(--motion-normal) var(--motion-ease),
+    transform var(--motion-normal) var(--motion-ease);
+}
+
+.panel-card:hover {
+  border-color: rgba(125, 211, 252, 0.24);
+  box-shadow: 0 18px 36px rgba(2, 8, 23, 0.2);
+}
+
+.stat-card:hover,
+.overview-card:hover,
+.overview-section-card:hover,
+.inventory-category-panel:hover {
+  transform: translateY(-2px);
+  border-color: rgba(103, 232, 249, 0.28);
+}
+
+button:not(:disabled),
+a {
+  transition:
+    color var(--motion-fast) ease,
+    background-color var(--motion-fast) ease,
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    transform var(--motion-fast) var(--motion-ease);
+}
+
+button:not(:disabled):active {
+  transform: scale(0.985);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid rgba(103, 232, 249, 0.86);
+  outline-offset: 2px;
+}
+
+input,
+select,
+textarea {
+  transition:
+    border-color var(--motion-fast) ease,
+    box-shadow var(--motion-fast) ease,
+    background-color var(--motion-fast) ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: rgba(103, 232, 249, 0.55);
+  box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.1);
+}
+
+.data-table tbody tr {
+  transition: background-color var(--motion-fast) ease;
+}
+
+.data-table tbody tr:hover td {
+  background-color: rgba(103, 232, 249, 0.045);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -21,6 +21,9 @@ import {
 import Sidebar from './components/layout/Sidebar'
 import DashboardPage from './pages/DashboardPage'
 import InventoryManagementPage, {
+  BackOfficeInventoryPage,
+  BranchInventoryPage,
+  EmployeeInventoryPage,
   ManagementSectionPage,
 } from './pages/InventoryManagementPage'
 import IdManagementPage from './pages/IdManagementPage'
@@ -40,6 +43,8 @@ import {
 } from './pages/BranchManagementPages'
 import LoginPage from './pages/LoginPage'
 import './styles/App.css'
+import './styles/ResponsiveLayout.css'
+import './styles/Motion.css'
 
 const TOKEN_KEY = 'techdesk:token'
 const MUST_CHANGE_PASSWORD_KEY = 'techdesk:must-change-password'
@@ -53,6 +58,12 @@ const BRANCH_PAGE_PERMISSIONS = [
   'branch-management',
   'branch-add',
   'branch-list',
+]
+const INVENTORY_PAGE_PERMISSIONS = [
+  'inventory',
+  'inventory-back-office',
+  'inventory-branch',
+  'inventory-employee-detail',
 ]
 
 const normalizeRoleName = (name = '') => name.toLowerCase().replace(/[^a-z]/g, '')
@@ -399,6 +410,9 @@ function App() {
       />
     ),
     inventory: <InventoryManagementPage title="Inventory Management" subtitle="Overview" />,
+    'inventory-back-office': <BackOfficeInventoryPage />,
+    'inventory-branch': <BranchInventoryPage />,
+    'inventory-employee-detail': <EmployeeInventoryPage />,
     'store-management': (
       <ManagementSectionPage
         title="Store Management"
@@ -490,9 +504,12 @@ function App() {
   const isAdministrator = ['admin', 'administrator'].includes(
     normalizeRoleName(authUser?.role),
   )
-  const allowedPages = isAdministrator
+  const rolePermissions = isAdministrator
     ? siteOptions.map(({ id }) => id)
     : activeRole?.permissions || ['dashboard']
+  const allowedPages = rolePermissions.includes('inventory')
+    ? [...new Set([...rolePermissions, ...INVENTORY_PAGE_PERMISSIONS])]
+    : rolePermissions
   const accountPages = ['profile', 'change-password']
   const visiblePage =
     accountPages.includes(currentPage) || allowedPages.includes(currentPage)

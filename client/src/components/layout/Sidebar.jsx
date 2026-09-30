@@ -13,7 +13,16 @@ const navItems = [
       { id: 'lab-cases-summary', label: 'Cases Summary' },
     ],
   },
-  { id: 'inventory', label: 'Inventory Management', icon: InventoryIcon },
+  {
+    id: 'inventory',
+    label: 'Inventory Management',
+    icon: InventoryIcon,
+    subItems: [
+      { id: 'inventory-back-office', label: 'Back Office Inventory' },
+      { id: 'inventory-branch', label: 'Branch Inventory' },
+      { id: 'inventory-employee-detail', label: 'Employee Detail' },
+    ],
+  },
   {
     id: 'branch-management',
     label: 'Branch Management',
