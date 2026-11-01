@@ -9,11 +9,12 @@ import { requireAnyPermission } from '../middleware/authorize.middleware.js'
 
 const router = express.Router()
 const inventoryPermission = requireAnyPermission(['inventory'])
+const inventoryImportPermission = requireAnyPermission(['inventory-import'])
 const employeeDetailPermission = requireAnyPermission(['inventory', 'inventory-employee-detail'])
 
 router.use(authenticate)
 router.get('/records', employeeDetailPermission, listInventoryRecords)
 router.get('/summary', inventoryPermission, getInventoryOverview)
-router.post('/import', inventoryPermission, importInventory)
+router.post('/import', inventoryImportPermission, importInventory)
 
 export default router

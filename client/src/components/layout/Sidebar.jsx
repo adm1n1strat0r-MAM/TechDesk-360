@@ -105,12 +105,14 @@ function Sidebar({ currentPage, onNavigate, allowedPages }) {
         })}
       </nav>
 
-      <button type="button" className="logout-button" onClick={onLogout}>
-        <span className="logout-icon">
-          <LogoutIcon />
-        </span>
-        Logout
-      </button>
+      <div className="sidebar-footer">
+        <button type="button" className="logout-button" onClick={onLogout}>
+          <span className="logout-icon">
+            <LogoutIcon />
+          </span>
+          Logout
+        </button>
+      </div>
     </aside>
   )
 }

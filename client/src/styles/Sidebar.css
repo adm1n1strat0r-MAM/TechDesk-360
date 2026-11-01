@@ -27,6 +27,7 @@
 
 .brand-block,
 .nav-menu,
+.sidebar-footer,
 .logout-button,
 .content-panel,
 .topbar,
@@ -213,9 +214,14 @@
   font-weight: 600;
 }
 
+.sidebar-footer {
+  display: grid;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
 .logout-button {
-  position: sticky;
-  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -232,7 +238,6 @@
   box-shadow: 0 16px 28px rgba(190, 24, 93, 0.18);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
-  margin-top: auto;
 }
 
 .logout-button:hover {

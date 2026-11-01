@@ -11,6 +11,7 @@ const defaultRoles = [
       'lab-new-cases',
       'lab-cases-summary',
       'inventory',
+      'inventory-import',
       'inventory-back-office',
       'inventory-branch',
       'branch-management',
