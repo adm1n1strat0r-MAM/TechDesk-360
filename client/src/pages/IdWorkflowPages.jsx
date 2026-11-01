@@ -9,6 +9,7 @@ export const siteOptions = [
   { id: 'lab-new-cases', label: 'Approve / Close Cases' },
   { id: 'lab-cases-summary', label: 'Lab Cases Summary' },
   { id: 'inventory', label: 'Inventory Management' },
+  { id: 'inventory-import', label: 'Import Inventory from Excel' },
   { id: 'inventory-back-office', label: 'Back Office Inventory' },
   { id: 'inventory-branch', label: 'Branch Inventory' },
   { id: 'inventory-employee-detail', label: 'Employee Detail' },

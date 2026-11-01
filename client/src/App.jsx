@@ -504,6 +504,7 @@ function App() {
   const isAdministrator = ['admin', 'administrator'].includes(
     normalizeRoleName(authUser?.role),
   )
+  const canImportInventory = isAdministrator || activeRole?.permissions.includes('inventory-import') === true
   const rolePermissions = isAdministrator
     ? siteOptions.map(({ id }) => id)
     : activeRole?.permissions || ['dashboard']
@@ -543,7 +544,28 @@ function App() {
           allowedPages={allowedPages}
         />
         <div className="page-view">
-          {pages[visiblePage] ?? pages.dashboard}
+          {visiblePage === 'dashboard' ? (
+            <DashboardPage
+              cases={labCases}
+              casesLoading={labCasesLoading}
+              casesError={labCasesError}
+              branches={branches}
+              branchesLoading={branchesLoading}
+              branchesError={branchesError}
+              users={idUsers}
+              usersLoading={idUsersLoading}
+              usersError={idUsersError}
+              roles={roles}
+              rolesLoading={rolesLoading}
+              allowedPages={allowedPages}
+            />
+          ) : visiblePage === 'inventory' ? (
+            <InventoryManagementPage
+              title="Inventory Management"
+              subtitle="Overview"
+              canImport={canImportInventory}
+            />
+          ) : pages[visiblePage] ?? <DashboardPage allowedPages={allowedPages} />}
         </div>
       </div>
     </AuthContext.Provider>

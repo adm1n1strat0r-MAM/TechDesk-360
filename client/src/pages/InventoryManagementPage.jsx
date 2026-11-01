@@ -342,7 +342,7 @@ function LocationTable({ locations, selectedCode, onSelect, emptyMessage }) {
   )
 }
 
-function InventoryManagementPage({ title = 'Inventory Management', subtitle = 'Overview' }) {
+function InventoryManagementPage({ title = 'Inventory Management', subtitle = 'Overview', canImport = false }) {
   const { summary, loading, error, refresh } = useInventorySummary()
   const [showImport, setShowImport] = useState(false)
   const [spreadsheetText, setSpreadsheetText] = useState('')
@@ -386,7 +386,7 @@ function InventoryManagementPage({ title = 'Inventory Management', subtitle = 'O
   return (
     <main className="content-panel">
       <PageHeader title={title} subtitle={subtitle} />
-      <section className="panel-card inventory-import-panel">
+      {canImport && <section className="panel-card inventory-import-panel">
         <div className="panel-header inventory-import-heading">
           <div>
             <p className="eyebrow">Spreadsheet import</p>
@@ -444,7 +444,7 @@ function InventoryManagementPage({ title = 'Inventory Management', subtitle = 'O
             {importMessage && <p className="inventory-message" role="status">{importMessage}</p>}
           </div>
         )}
-      </section>
+      </section>}
       {error && <p className="inventory-error">{error}</p>}
       {loading ? <p className="inventory-muted">Loading inventory summary...</p> : summary && (
         <>
